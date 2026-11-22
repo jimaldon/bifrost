@@ -34,6 +34,7 @@ import (
 	"github.com/maximhq/bifrost/core/providers/databricks"
 	"github.com/maximhq/bifrost/core/providers/deepseek"
 	"github.com/maximhq/bifrost/core/providers/elevenlabs"
+	"github.com/maximhq/bifrost/core/providers/exa"
 	"github.com/maximhq/bifrost/core/providers/fireworks"
 	"github.com/maximhq/bifrost/core/providers/gemini"
 	"github.com/maximhq/bifrost/core/providers/githubcopilot"
@@ -5390,6 +5391,8 @@ func (bifrost *Bifrost) createBaseProvider(providerKey schemas.ModelProvider, co
 		return gemini.NewGeminiProvider(config, bifrost.logger), nil
 	case schemas.OpenRouter:
 		return openrouter.NewOpenRouterProvider(config, bifrost.logger), nil
+	case schemas.Exa:
+		return exa.NewExaProvider(config, bifrost.logger)
 	case schemas.Elevenlabs:
 		return elevenlabs.NewElevenlabsProvider(config, bifrost.logger), nil
 	case schemas.Soniox:
